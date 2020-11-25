@@ -1,0 +1,78 @@
+================================================== Chapter 1 ================================================
+-> Home Directory = ~ (tilda)
+
+-> $ type echo
+
+-> $ mkdir dir1 dir2 ddir3 dir4
+
+-> $ mkdir -p india/mumbai/dharvi
+	- creating multiple directory inside one another
+
+-> $ mkdir india/karnataka
+	- creating directory without changing the current directory
+
+-> to move directory (moving Morocco inside Africa dir)
+	- $ mv /home/vaibhav/Europe/Morocco /home/vaibhav/Africa/
+
+-> to rename dir
+	- $ mv oldname.txt newname.txt
+
+-> -r flag is used to do recursive tasks for all the sub-dir
+
+-> -f flag is used to do do forcefully
+
+-> cat > filename.txt
+	- cat is used to create and write (if present then it'll overwrite the existing file)
+
+-> ls -a 
+	- all flag is to view the hidden files 
+
+-> ls -l 
+	- long flag is to see detailed listing of the file
+
+-> ls -lt 
+	- long time flag is to list file according to their modification
+
+------------------ user helping commands -------------------
+
+-> whatis command_name
+	- to know one line description of command
+
+-> man command_name
+	- to get detailed explanation of the command
+
+-> command --help
+	- to get help with the command
+
+-> apropos command_substring
+	- to get all the command maching the string
+---------------------------------------------------------------
+
+-> $ alias cl=clear
+	- if command got lost just make LHS=RHS, i.e. clear=clear
+
+-> $ history
+
+-------------------------------------- system environment -------------------------------
+-> $ env
+
+-> $ export THIS_PC=vaibhav-dwivedi
+	- to set environment variable
+	- to make them persistant use them in ~/.profile or ~/.pam_environment
+
+-> $ echo $PATH
+	- to see all the environment paths seprated by :
+
+-> $ export PATH=$PATH:/path/to/bin
+	- this will append the path to the $PATH
+
+-> $ which executable
+	- to check specific path binary is working and path is set
+
+-> [vaibhav@prod-server]$
+	- username@hostname i.e. user working on host 
+
+-> $ echo $PS1 
+	- used to see bash prompt, also $ PS1="ubuntu-server" is to change the prompt
+	- PS1="[\d \t \u@\h:\w] $ "
+	- passed flags in above are: [date time username@hostname:pwd] $
