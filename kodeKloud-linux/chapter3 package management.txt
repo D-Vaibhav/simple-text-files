@@ -1,0 +1,108 @@
+================================================== chapter 3 ===============================================
+
+-> mostly all these can be found inside /etc/
+
+--------------------------------------- introduction ----------------------------------------
+
+-> WHY?
+	- to deal with the installation and execution of various application/program's dependency easily.
+	- provides automation for installation, cofiguration, management and removal of packages.
+	- keeps package integrity and authenticity etc.
+	- provide querying to manage package.
+	- keeps us away from dependency HELL
+
+
+-> package manager types (popular):
+	for ubuntu, linux mint
+	--------------------------
+	#1. DPKG 	- base package manager for DEBIAN  based distribution
+	#2. APT 	- front-end for DPKG Debian based distri.
+	#3. APT-GET	- traditional front-end for DPKG Debian based distri. 
+
+	for red hat, centOS, fedora 
+	-------------------------------
+	#4. RPM 	- based package manager for Red Hat based distribution
+	#5. YUM 	- front-end for RPM sys.
+	#6. DNF 	- more feature rich for RPM sys
+
+
+---------------------------------------------- RPM -----------------------------------------
+
+-> RPM can be used by: centOS, Red Hat, Fedora
+
+-> can perform: 
+	- installation   :	$ rpm -ivh absolute/path/to/package/pkg_rpm_file
+	- uninstallation :
+	- upgrade
+	- query	  	 : 	$ rpm qa | grep pkg_name
+	- verifying
+
+-> each above command start from $ rpm ........
+
+-> Problem: do not manage package dependency own its own so we need a higher level package manager like YUM
+
+
+---------------------------------------------- YUM ------------------------------------------
+
+-> for RPM based distro
+
+-> can be seen to be working and managing inside /etc directory
+
+-> it'll download a package with all its dependencies
+
+-> can perform: 
+	- installation 		: $ yum install pkg_name
+	- uninstallation 	: $ yum remove pkg_name
+	- update 		: $ yum update pkg_name
+
+-> to use centOS use		: $ ssh centos-lab-name
+
+-> to see repos			: $ yum repolist
+
+-> to find package using command: $ yum provides cmd_name
+
+
+-------------------------------------------- DPKG ---------------------------------------------
+
+-> like low-level package manager
+
+-> use command like: $ dpkg ............
+
+-> can't manage dependency of the packages
+
+
+------------------------------------------- APT/ APT-GET ----------------------------------------
+
+-> higher level package manager 
+
+-> apt is overall a better tool than apt-get
+
+-> it'll download a package with all its dependencies
+
+-> apt relies on software repo which can be found inside /etc/apt/sources.list
+
+-> basic commands:
+	- installation
+	--------------
+		- $ apt install pkg_name
+
+		- $ apt update       ( to be run after installing any package, to upgrade package)
+	
+		- $ apt upgrade      ( to be run after update cmd, to install all available upgrade)
+
+		- $ apt 
+	
+
+	- uninstallation
+	------------------
+		- $ apt remove pkg_name
+
+
+	- searching a pkg inside the repo
+	-----------------------------------
+		- $ apt search pkg_name
+
+
+	- to list all the available pkg
+	----------------------------------
+		- $ apt list | grep pkg_name
