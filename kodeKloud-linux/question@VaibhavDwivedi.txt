@@ -1,7 +1,9 @@
-------------------------------- linux questions -----------------------------
+------------------------------------------- linux questions -----------------------------
 
-Level 1
-----------
+
+==================================================================================================
+						Level 1
+==================================================================================================
 Q. which is home directory
 A. ~
 
@@ -44,11 +46,43 @@ A. $ sudo su
 Q. how to create and write file in one command
 A. $ cat > filename.type
 
+Q. tar stands for
+A. tape archive
 
-14
+Q. how to create a tarball
+A. $ tar -cf tarball.tar file1 file2 file3
 
-Level 2
----------
+Q. how to extract tarball
+A. tar -xf tarball.tar
+
+Q. can we read a tarball without extract content out
+A. yes using cmd : $ zcat tarball.tar
+
+Q. how to search for a file 
+A. find /directory -name filename
+
+Q. grep command is used for
+A. to find the maching word/substring inside file/directory
+
+Q. what are types of streams
+A. 3 types: #1. STDOUT, #2. STDIN, #3. STDERR
+
+Q. what is use of > in command
+A. all the streams can be re-directed to a file also using >
+
+Q. what arre pipes in linux
+A. pipes allows us to STDOUT first cmd as STDIN to the second cmd
+
+Q. how can we chain multiple commands 
+A. $ cmd1 | cmd2
+
+Q. how to start making changes in vim editor
+A. by enabling INSERT mode using key: i
+
+
+==================================================================================================
+						Level 2
+==================================================================================================
 
 Q. how to create both parent and child directory
 A. $ mkdir -p parent/children
@@ -110,5 +144,17 @@ A. $ python3 /home/bob/my_python_test.py 2> /home/vaibhav/pipes
 Q. Read the file /usr/share/man/man1/tail.1.gz and without extracting it and redirect the contents to a file called /home/vaibhav/pipes
 A. $ zcat /usr/share/man/man1/tail.1.gz | /home/vaibhav/pipes
 
+Q. $ man sudo | grep version
+A. here the manual of sudo will be feed as i/p, on top of that grep is executed
 
-20
+Q. $ ls | grep -i ka
+A. it'll output only line maching to the sub-string ka(keeping things case insenstive)
+
+Q. $ ls | grep -i ka > file_with_ka.txt
+A. it'll store the output to the file produced by the grep (working over ls)
+
+Q. what is the difference between the > and >>
+A. > is for overwriting a file content while >> is for appending the file content
+
+Q. $ tar -zcf test.tar file1 file2 file3
+A. create a compresssed tarball 
