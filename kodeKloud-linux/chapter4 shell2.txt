@@ -1,0 +1,134 @@
+================================================== chapter 4 ========================================
+
+-------------------------------------- archival ----------------------------------
+
+-> getting file/directory size
+	- $ du -sh name
+	- $ ls -lh name
+	- where s is size, h is human readable
+
+-> tar = tape archive
+
+-> tar is used to archive various files into a single unit called tar ball
+	 creating tarball
+	-------------------
+	- $ tar -cf test.tar file1 file2 file3
+		- flags: c is create, f is filename of the tar ball created
+		- rest is all the files to be archived
+
+	- $ tar -zcf test.tar file1 file2 file3
+		- compressed tarball
+
+	
+	viewing tarball
+	------------------
+	- $ ls -ltr test.tar
+
+	- $ tar -tf test.tar
+		- to view the files content inside the tb
+
+
+	extracting tarball
+	-------------------
+	- $ tar -xf test.tar
+		- to extract the tb
+
+
+------------------------------------------ compression ------------------------------------------
+
+-> compressing file (3 ways)
+   ------------------
+	- $ bzip2 file
+	- $ gzip file
+	- $ xz file
+	
+	- these compression command will add their own type to the compressed file type
+
+-> uncompressing file
+   -------------------
+	- $ bunzip2 bzip2CompressedFile
+	- $ gunzip gzipCompressedFile
+	- $ unxz xzCompressedFile
+
+-> we can also read file without uncompressing them using tools such as
+	- zcat, bzcat, xzcat
+
+
+-------------------------------------------- searching -----------------------------------------
+
+-> $ locate filename
+
+-> $ find / -name filename
+	- this will search for the name ie. filename inside directory = /
+
+-> to find the maching word/substring inside file/directory 
+	commands
+	----------
+	- $ grep substring filename
+
+	- $ grep -i substring filename
+		- will search for the line containing substring inside filename 
+		- flag: -i enables case-insensitiveness
+		- flag: -v will search for all the lines inside the file which is not having the substring provided
+		- flag: -w will search for the exact word not substring
+		- flag: -An will grab n more line below the match
+		- flag: -Bn will grab n more line above the match
+
+	- $ grep -r "something to be searched" absolute/path/of/search/directory
+		- flag: r means recursive
+
+
+----------------------------------------------- IO redirection --------------------------------------------
+
+-> streams types:
+	#1. standard input stream - the text we write to the screen
+	#2. standard output stream - the output on the screen
+	#3. standard error stream - error messages
+
+-> cat is cmd to open files while > is stream
+
+-> all the streams can be re-directed to a file also using > and >>
+	- > is for overwriting a file content
+	- >> is for appending the file content
+
+-> eg: using stream to write in to the file
+	- $ echo $ENV_VAR > file.txt
+		- will create a file and overwrite it with the output of echo 
+	
+	- $ echo $ENV_VAR >> file.txt 
+		- will create a file(if not created) and append it with the output of echo 
+
+	- $ find / -name filename > /absolute/path/to/redirect
+
+	- same will go for error also , but with 2>
+
+---------------------------------------------- command line pipes -------------------------------------------
+
+- used to chain multiple commands (two or more)
+
+- pipes allows us to STDOUT first cmd as STDIN to the second cmd
+	- i.e. cmd1 | cmd2
+
+- eg:
+	- $ man sudo | grep version
+		- here the manual of sudo will be feed as i/p, on top of that grep is executed
+
+	- $ ls | grep ka
+		- it'll output only line maching to the sub-string ka
+	
+	- $ ls | grep -i ka > file_with_ka.txt
+		- it'll store the output to the file produced by the grep (working over ls)
+
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ EXERCISES $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Q. Find the file under /etc directory that contains the string 172.16.238.197. Save the answer using the absolute path in the file /home/vaibhav/ip
+A. $ grep -ir 172.16.238.197 /etc > home/vaibhav/ip
+
+Q. Run the command python3 /home/bob/my_python_test.py and redirect the standard error to the file /home/vaibhav/py_error.txt
+A. $ python3 /home/bob/my_python_test.py 2> /home/vaibhav/pipes
+
+Q. Read the file /usr/share/man/man1/tail.1.gz and without extracting it and redirect the contents to a file called /home/vaibhav/pipes
+A. $ zcat /usr/share/man/man1/tail.1.gz | /home/vaibhav/pipes
