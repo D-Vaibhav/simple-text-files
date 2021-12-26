@@ -1,0 +1,12 @@
+recursion
+-----------
+- has base case
+- it mostly consider every every aspect of the call stack as per the function call inside the function
+- can be oprtized via memoization
+
+backtracking
+-------------
+- has base and and negative base case also
+- it's mostly focused on desired solution while discarding other possible solution
+- it uses recursion behind the scene
+- can be oprtized via memoization
